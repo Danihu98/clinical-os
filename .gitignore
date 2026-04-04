@@ -1,0 +1,21 @@
+# Build output
+main.js
+
+# Dependencies
+node_modules/
+
+# Generated files
+src/generated/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Old files (can be deleted after migration)
+bundler.js
+reparar.js
+_DEV_CONTENT/

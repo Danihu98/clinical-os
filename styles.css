@@ -1,0 +1,116 @@
+/* Clinical Formulation OS */
+
+/* Modal base */
+.clinical-os-modal {
+    padding: 4px 0;
+}
+
+.clinical-os-modal h2 {
+    margin-bottom: 16px;
+}
+
+/* Patient ID badge */
+.clinical-os-id-badge {
+    display: inline-block;
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Modal action bar */
+.clinical-os-modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* Empty state text */
+.clinical-os-empty-state {
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* History list */
+.clinical-os-history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.clinical-os-history-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--background-modifier-border);
+    transition: background-color 0.15s ease;
+}
+
+.clinical-os-history-item:last-child {
+    border-bottom: none;
+}
+
+.clinical-os-history-item:hover {
+    background-color: var(--background-modifier-hover);
+}
+
+.clinical-os-history-date {
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+.clinical-os-history-file {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Boletas list */
+.clinical-os-boletas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.clinical-os-boleta-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+    gap: 12px;
+}
+
+.clinical-os-boleta-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.clinical-os-boleta-name {
+    font-weight: 600;
+}
+
+.clinical-os-boleta-detail {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.clinical-os-boletas-footer {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--background-modifier-border);
+    font-weight: 600;
+    text-align: right;
+}

@@ -1,0 +1,34 @@
+{
+	"nodes":[
+		{"id":"914d6268cdd65fc3","type":"text","text":"[[Creencias centrales]]\n\n\n","x":16,"y":963,"width":300,"height":250},
+		{"id":"3a7a1baa3d3dd77e","type":"text","text":"[[Sesgos de memoria]]\n\n","x":-421,"y":641,"width":341,"height":253},
+		{"id":"af9750ed3658500f","type":"text","text":"[[Creencias intermedias]]\n\n\n","x":16,"y":641,"width":300,"height":253},
+		{"id":"fb4310ea66c66cfb","type":"text","text":"[[Deficit de habilidades conductuales]]\n\n","x":1000,"y":-127,"width":400,"height":207},
+		{"id":"efd2317a17e7ce41","type":"text","text":"[[Componente afectivo]]\n","x":166,"y":-165,"width":488,"height":285,"color":"3"},
+		{"id":"1efa798ae84eb8f7","type":"text","text":"","x":379,"y":-267,"width":50,"height":50},
+		{"id":"7a761ac97afb1eb9","type":"text","text":"[[Contingencias]]","x":549,"y":641,"width":360,"height":200},
+		{"id":"cbf17a1d8e194a66","type":"text","text":"[[Componente cognitivo]]\n","x":-428,"y":187,"width":744,"height":296,"color":"5"},
+		{"id":"76c04600dddb099b","type":"text","text":"[[Historia del aprendizaje]]","x":-424,"y":963,"width":348,"height":250},
+		{"id":"86d1469eab59e35d","type":"text","text":"[[Efectos negativos de la conducta]]\n","x":1200,"y":228,"width":250,"height":213},
+		{"id":"243e8a88e7bf77c8","type":"text","text":"[[Componente conductual]]","x":469,"y":194,"width":521,"height":289,"color":"1"},
+		{"id":"c992f6e37c9d1c2e","type":"text","text":"[[Condicionamiento clásico]]","x":827,"y":-539,"width":346,"height":233},
+		{"id":"874e0f48d30eb757","type":"text","text":"[[Gatillante]]\n","x":290,"y":-539,"width":240,"height":180},
+		{"id":"217ef8acd6a76640","type":"text","text":"[[Sesgo atencional]]","x":-255,"y":-324,"width":350,"height":165}
+	],
+	"edges":[
+		{"id":"33bb564a0a65dde0","fromNode":"874e0f48d30eb757","fromSide":"bottom","toNode":"efd2317a17e7ce41","toSide":"top"},
+		{"id":"e2568dcf3c9b1907","fromNode":"217ef8acd6a76640","fromSide":"right","toNode":"1efa798ae84eb8f7","toSide":"left"},
+		{"id":"9f9d859ef9090e92","fromNode":"76c04600dddb099b","fromSide":"right","toNode":"914d6268cdd65fc3","toSide":"left"},
+		{"id":"9af05739f1c42fa5","fromNode":"76c04600dddb099b","fromSide":"top","toNode":"3a7a1baa3d3dd77e","toSide":"bottom"},
+		{"id":"d4a5bf683d04bad9","fromNode":"914d6268cdd65fc3","fromSide":"top","toNode":"af9750ed3658500f","toSide":"bottom"},
+		{"id":"bdd4ff300d46feb4","fromNode":"243e8a88e7bf77c8","fromSide":"right","toNode":"86d1469eab59e35d","toSide":"left","color":"1"},
+		{"id":"f01fb090bebd0e70","fromNode":"243e8a88e7bf77c8","fromSide":"bottom","toNode":"7a761ac97afb1eb9","toSide":"top","fromEnd":"arrow","color":"1"},
+		{"id":"1bb676043f1625b1","fromNode":"efd2317a17e7ce41","fromSide":"left","toNode":"cbf17a1d8e194a66","toSide":"top","color":"4"},
+		{"id":"f5fa8bc2f684f0e3","fromNode":"cbf17a1d8e194a66","fromSide":"right","toNode":"243e8a88e7bf77c8","toSide":"left","color":"6"},
+		{"id":"d6369f5dc2b9093d","fromNode":"243e8a88e7bf77c8","fromSide":"top","toNode":"efd2317a17e7ce41","toSide":"right","color":"2"},
+		{"id":"6620982b79e782bd","fromNode":"243e8a88e7bf77c8","fromSide":"top","toNode":"fb4310ea66c66cfb","toSide":"left","color":"1"},
+		{"id":"e75256b31c19fba0","fromNode":"c992f6e37c9d1c2e","fromSide":"left","toNode":"efd2317a17e7ce41","toSide":"right"},
+		{"id":"d5ed6e14eaea0634","fromNode":"3a7a1baa3d3dd77e","fromSide":"top","toNode":"cbf17a1d8e194a66","toSide":"bottom"},
+		{"id":"fd07419024ddf281","fromNode":"af9750ed3658500f","fromSide":"top","toNode":"cbf17a1d8e194a66","toSide":"bottom"}
+	]
+}

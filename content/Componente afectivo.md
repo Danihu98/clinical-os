@@ -1,0 +1,29 @@
+# Definición
+
+Esta definición se enmarca en el contexto de las [[Psicología/Formulaciones clínicas/Formulaciones clínicas]]. El componente emocional o afectivo se refiere a la experiencia subjetiva de sentimientos y emociones que surge en respuesta a situaciones específicas, estímulos del entorno o pensamientos internos. Estas respuestas emocionales pueden variar en intensidad, duración y tipo, desde emociones básicas como la tristeza, la alegría o el miedo, hasta estados emocionales más complejos como la culpa o el resentimiento. El componente afectivo no sólo se manifiesta en términos internos, sino que también tiene correlatos fisiológicos y conductuales que reflejan la experiencia emocional.
+
+En el contexto clínico, el componente emocional es fundamental porque determina cómo una persona experimenta y reacciona ante su realidad. Las emociones no son otra cosa que procesos y fenómenos corporales que nos indican a qué lugar de la realidad estamos reaccionando. Dicho de otro modo, las emociones son procesos eminentemente atencionales. La ansiedad nos ayuda a prestar atención a la amenaza del futuro; el miedo, nos ayuda a prestar atención a la amenaza del presente inmediato; la rabia, nos llama a la acción (y probablemente a la agresión) cuando prestamos atención a la injusticia. Las emociones, con el contenido atencional para el continente cognitivo de nuestra percepción de la realidad. Juntos, ambos componentes nos ayudan a crear significados. 
+
+Las emociones pueden facilitar la adaptación al entorno, pero también pueden volverse desadaptativas si se experimentan de forma crónica o demasiado intensa como para permitirnos decidir. El entendimiento profundo de la experiencia emocional del paciente es crucial para cualquier intervención psicoterapéutica, ya que las emociones suelen estar en el centro de la problemática que trae la persona a terapia.
+
+Podemos ver este componente como el termómetro subjetivo de la realidad. Cada persona tiene su propio umbral para cada emoción, y este termómetro está calibrado por factores como la historia de vida, las creencias sobre sí mismo y el mundo, y el entorno actual. Es un componente que puede ser muy difícil de regular, ya que las emociones a menudo parecen irrumpir de forma autónoma. Sin embargo, con las herramientas adecuadas, las personas pueden aprender a modificar su experiencia emocional o el significado que le atribuyen a sus emociones, permitiendo una mayor regulación afectiva.
+
+### Ejemplos
+
+Una persona que atraviesa un duelo experimentará un conjunto de emociones intensas, como tristeza profunda, rabia, y sentimientos de vacío. Estas emociones reflejan el componente afectivo y son una reacción natural ante la pérdida. Otro ejemplo es una persona que siente ansiedad intensa antes de hablar en público, donde el miedo y la aprensión se activan como respuesta afectiva a la situación. En contextos de conflicto interpersonal, el resentimiento y la frustración también son parte del componente emocional y reflejan la experiencia interna de la relación. 
+
+
+### Patrones Recurrentes
+
+El componente emocional tiende a ser un aspecto fluctuante y dinámico de la experiencia humana. Las emociones pueden aparecer de forma automática en respuesta a ciertos **gatillantes** y pueden ser moduladas por los sesgos atencionales, que amplifican o minimizan ciertos estímulos del entorno. Un patrón común en los problemas clínicos es la dificultad para **regular las emociones**, lo cual puede llevar a reacciones intensas, conductas impulsivas o evitación de situaciones emocionales dolorosas. Además, ciertos patrones emocionales tienden a repetirse en contextos específicos, lo que se convierte en un foco de intervención clínica.
+
+### Conexiones a Otros Conceptos
+
+El componente emocional está intrínsecamente relacionado con otros elementos de la formulación clínica. Los **sesgos atencionales** y las **creencias centrales** modulan la forma en que una persona experimenta sus emociones. Por ejemplo, una creencia central de "soy débil" puede intensificar las emociones de vergüenza y desesperanza frente a situaciones que otras personas considerarían normales. Además, el componente emocional también está vinculado a los **factores mantenedores** de un problema psicológico, ya que las emociones desreguladas pueden llevar a conductas evitativas o a un aumento del malestar, perpetuando así el problema.
+
+### Factores a Considerar
+
+Un factor clave a considerar es la **valencia** de la emoción (positiva o negativa) y la **intensidad** con la que se experimenta. Las emociones no son buenas ni malas en sí mismas, pero su intensidad y frecuencia pueden hacerlas problemáticas. La capacidad de **regulación emocional** es otro aspecto crucial. Personas con dificultades para regular sus emociones pueden encontrarse atrapadas en ciclos de malestar emocional persistente. Además, es importante tener en cuenta el **contexto en el que emergen las emociones**, ya que una emoción que es desadaptativa en un contexto puede ser adaptativa en otro. La **validación emocional** y el trabajo en el significado atribuido a las emociones son intervenciones fundamentales para ayudar a los pacientes a lidiar con este componente de una manera más saludable y efectiva.
+
+Otro factor importantísimo a considerar, es que las emociones no ocurren en un plano o dimensión distinta al cuerpo. Del mismo modo que la separación mente-cuerpo es artificial, también lo es la separación emoción-cuerpo. Muchas veces, pensamos en las emociones como estas cosas que ocurren y que cuando las formulamos, tienen un nombre concreto o peor aún, pensamos que la emoción *es* el nombre que anotamos en la formulación. La realidad no es tan sencilla. La emoción es, en su esencia, un fenómeno corporal. Por eso, cuándo formulemos el componente afectivo, además de incluir el nombre de la emoción, describamos también la experiencia corporal asociado a este.
+

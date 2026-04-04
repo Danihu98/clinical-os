@@ -1,0 +1,34 @@
+{
+	"nodes":[
+		{"id":"3e839f165b9d62ca","type":"text","text":"Yo como contexto","x":-180,"y":680,"width":300,"height":60},
+		{"id":"1cd267f730d389da","type":"text","text":"Acción comprometida","x":360,"y":360,"width":287,"height":99},
+		{"id":"5115e9b8f818d17b","type":"text","text":"Valores","x":379,"y":50,"width":250,"height":60},
+		{"id":"bbe7fda845d5921d","type":"text","text":"Defusión cognitiva","x":-720,"y":381,"width":304,"height":78},
+		{"id":"b0ebf88c7883301e","type":"text","text":"Aceptación","x":-693,"y":50,"width":250,"height":60},
+		{"id":"a62c2f4045aa0d1f","type":"text","text":"Contacto con el momento presente","x":-180,"y":-320,"width":287,"height":126},
+		{"id":"e5d2857d8045a0dc","type":"text","text":"Flexibilidad Psicológica","x":-186,"y":220,"width":326,"height":60}
+	],
+	"edges":[
+		{"id":"78773eb56f0ca523","fromNode":"1cd267f730d389da","fromSide":"top","toNode":"5115e9b8f818d17b","toSide":"bottom"},
+		{"id":"631145ba2021adf1","fromNode":"5115e9b8f818d17b","fromSide":"top","toNode":"a62c2f4045aa0d1f","toSide":"right"},
+		{"id":"da22f8e7ba0bd576","fromNode":"a62c2f4045aa0d1f","fromSide":"left","toNode":"b0ebf88c7883301e","toSide":"top"},
+		{"id":"0e62c0c43408aec2","fromNode":"b0ebf88c7883301e","fromSide":"bottom","toNode":"bbe7fda845d5921d","toSide":"top"},
+		{"id":"911b6ef3b6b9c372","fromNode":"bbe7fda845d5921d","fromSide":"bottom","toNode":"3e839f165b9d62ca","toSide":"left"},
+		{"id":"9047f331de820c70","fromNode":"3e839f165b9d62ca","fromSide":"right","toNode":"1cd267f730d389da","toSide":"bottom"},
+		{"id":"87517c26b9539c54","fromNode":"bbe7fda845d5921d","fromSide":"right","toNode":"3e839f165b9d62ca","toSide":"top","fromEnd":"arrow"},
+		{"id":"4d0a9ad0b34a3c9e","fromNode":"3e839f165b9d62ca","fromSide":"top","toNode":"1cd267f730d389da","toSide":"left","fromEnd":"arrow"},
+		{"id":"b6221c8cffdb8b0f","fromNode":"3e839f165b9d62ca","fromSide":"top","toNode":"5115e9b8f818d17b","toSide":"left"},
+		{"id":"762a141b18e765a1","fromNode":"3e839f165b9d62ca","fromSide":"top","toNode":"b0ebf88c7883301e","toSide":"right"},
+		{"id":"ed4b029e1871053e","fromNode":"3e839f165b9d62ca","fromSide":"top","toNode":"a62c2f4045aa0d1f","toSide":"bottom"},
+		{"id":"45a97154a8ea59a0","fromNode":"1cd267f730d389da","fromSide":"left","toNode":"5115e9b8f818d17b","toSide":"left"},
+		{"id":"e193d77b7be089bf","fromNode":"1cd267f730d389da","fromSide":"left","toNode":"b0ebf88c7883301e","toSide":"right"},
+		{"id":"e8ed604bc107d0c8","fromNode":"1cd267f730d389da","fromSide":"left","toNode":"a62c2f4045aa0d1f","toSide":"bottom"},
+		{"id":"b822da58e9eb3530","fromNode":"5115e9b8f818d17b","fromSide":"left","toNode":"a62c2f4045aa0d1f","toSide":"bottom"},
+		{"id":"7aa7a2270d226d3e","fromNode":"5115e9b8f818d17b","fromSide":"left","toNode":"b0ebf88c7883301e","toSide":"right"},
+		{"id":"03d7afab09bd017a","fromNode":"5115e9b8f818d17b","fromSide":"left","toNode":"bbe7fda845d5921d","toSide":"right"},
+		{"id":"a0913fd5b6462ec0","fromNode":"bbe7fda845d5921d","fromSide":"right","toNode":"a62c2f4045aa0d1f","toSide":"bottom"},
+		{"id":"a0e38c20d15f2c92","fromNode":"bbe7fda845d5921d","fromSide":"right","toNode":"b0ebf88c7883301e","toSide":"right"},
+		{"id":"538a1d9b84353469","fromNode":"b0ebf88c7883301e","fromSide":"right","toNode":"a62c2f4045aa0d1f","toSide":"bottom"},
+		{"id":"abb17cfb68d55f93","fromNode":"bbe7fda845d5921d","fromSide":"right","toNode":"1cd267f730d389da","toSide":"left"}
+	]
+}
