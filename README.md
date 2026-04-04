@@ -40,7 +40,7 @@ Manage patients, build visual case formulations, track sessions and fees, and ke
 
 ### Manual Installation
 
-1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/tu-usuario/clinical-os/releases).
+1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/Danihu98/clinical-os/releases).
 2. Create a folder called `clinical-os` inside your vault's `.obsidian/plugins/` directory.
 3. Place the downloaded files in that folder.
 4. Restart Obsidian and enable the plugin in **Settings > Community Plugins**.
