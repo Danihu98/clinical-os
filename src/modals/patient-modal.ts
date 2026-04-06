@@ -34,15 +34,15 @@ export class PatientModal extends Modal {
     onOpen(): void {
         const { contentEl } = this;
         contentEl.addClass('clinical-os-modal');
-        contentEl.createEl('h2', { text: 'Nuevo Expediente' });
+        contentEl.createEl('h2', { text: 'Nuevo expediente' });
 
-        const idDisplay = contentEl.createEl('p', {
+        contentEl.createEl('p', {
             text: `ID: ${String(this.nextPatientId).padStart(3, '0')}`,
             cls: 'clinical-os-id-badge',
         });
 
         new Setting(contentEl)
-            .setName('Nombre del Paciente')
+            .setName('Nombre del paciente')
             .addText(text => {
                 text.setPlaceholder('Ej: Ana López')
                     .onChange(value => { this.patientName = value; });
@@ -55,7 +55,7 @@ export class PatientModal extends Modal {
 
         if (Object.keys(this.availableModels).length > 0) {
             new Setting(contentEl)
-                .setName('Modelo Clínico')
+                .setName('Modelo clínico')
                 .setDesc('Selecciona la base teórica')
                 .addDropdown(dropdown => {
                     for (const modelName of Object.keys(this.availableModels)) {
@@ -70,7 +70,7 @@ export class PatientModal extends Modal {
 
         const btnDiv = contentEl.createDiv({ cls: 'clinical-os-modal-actions' });
 
-        const btn = btnDiv.createEl('button', { text: 'Crear Expediente' });
+        const btn = btnDiv.createEl('button', { text: 'Crear expediente' });
         btn.addClass('mod-cta');
         btn.onclick = () => this.handleCreate();
     }
@@ -95,7 +95,7 @@ export class PatientModal extends Modal {
 
             if (noteFile) {
                 await this.onCreated(this.nextPatientId);
-                this.app.workspace.getLeaf().openFile(noteFile);
+                await this.app.workspace.getLeaf().openFile(noteFile);
                 new Notice(`Paciente creado: ${this.patientName.trim()}`);
             } else {
                 new Notice('Este paciente ya existe.');

@@ -23,7 +23,7 @@ export class SessionModal extends Modal {
     onOpen(): void {
         const { contentEl } = this;
         contentEl.addClass('clinical-os-modal');
-        contentEl.createEl('h2', { text: 'Registrar Sesión' });
+        contentEl.createEl('h2', { text: 'Registrar sesión' });
 
         const patients = getPatientList(this.app, this.rootFolder);
 

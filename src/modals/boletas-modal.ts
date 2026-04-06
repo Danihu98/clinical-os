@@ -27,7 +27,7 @@ export class BoletasModal extends Modal {
 
         const pending = getPendingBoletas(this.data);
 
-        contentEl.createEl('h2', { text: `Boletas Pendientes (${pending.length})` });
+        contentEl.createEl('h2', { text: `Boletas pendientes (${pending.length})` });
 
         if (pending.length === 0) {
             contentEl.createEl('p', {
@@ -56,7 +56,7 @@ export class BoletasModal extends Modal {
 
             const btn = item.createEl('button', { text: 'Emitida' });
             btn.addClass('mod-cta');
-            btn.style.flexShrink = '0';
+            btn.addClass('clinical-os-boleta-btn');
             btn.onclick = async () => {
                 markBoletaEmitted(this.data, session.id);
                 await this.onSave();

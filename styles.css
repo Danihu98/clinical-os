@@ -107,6 +107,10 @@
     margin-top: 2px;
 }
 
+.clinical-os-boleta-btn {
+    flex-shrink: 0;
+}
+
 .clinical-os-boletas-footer {
     margin-top: 16px;
     padding-top: 12px;

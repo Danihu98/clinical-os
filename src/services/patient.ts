@@ -1,4 +1,4 @@
-import { App, Vault, TFile, TFolder, TAbstractFile, moment } from 'obsidian';
+import { App, TFile, TFolder, TAbstractFile, moment } from 'obsidian';
 import { LIBRARY_CONTENT } from '../generated/library-content';
 import { ensureFolder } from './vault-utils';
 import { PATIENTS_SUBFOLDER } from '../constants';

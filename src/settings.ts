@@ -1,4 +1,4 @@
-import { App, PluginSettingTab, Setting } from 'obsidian';
+import { App, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import { ClinicalOSData } from './types';
 import { detectCanvasModels } from './services/patient';
 
@@ -6,8 +6,8 @@ export class ClinicalOSSettingTab extends PluginSettingTab {
     private data: ClinicalOSData;
     private onSave: () => Promise<void>;
 
-    constructor(app: App, pluginId: string, data: ClinicalOSData, onSave: () => Promise<void>) {
-        super(app, { manifest: { id: pluginId } } as any);
+    constructor(app: App, plugin: Plugin, data: ClinicalOSData, onSave: () => Promise<void>) {
+        super(app, plugin);
         this.data = data;
         this.onSave = onSave;
     }
@@ -16,7 +16,7 @@ export class ClinicalOSSettingTab extends PluginSettingTab {
         const { containerEl } = this;
         containerEl.empty();
 
-        containerEl.createEl('h2', { text: 'Clinical OS' });
+        new Setting(containerEl).setName('Clinical OS').setHeading();
 
         new Setting(containerEl)
             .setName('Carpeta raíz')
@@ -63,7 +63,7 @@ export class ClinicalOSSettingTab extends PluginSettingTab {
                 });
         }
 
-        containerEl.createEl('h3', { text: 'Información' });
+        new Setting(containerEl).setName('Información').setHeading();
         containerEl.createEl('p', {
             text: `Próximo ID de paciente: ${String(this.data.nextPatientId).padStart(3, '0')}`,
             cls: 'setting-item-description',
