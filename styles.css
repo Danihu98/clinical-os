@@ -135,6 +135,11 @@
     border-left-color: var(--interactive-accent);
 }
 
+.clinical-os-alert-reminder {
+    border-left-color: var(--text-muted);
+    background: rgba(var(--mono-rgb-100), 0.03);
+}
+
 .clinical-os-alert-resolved {
     opacity: 0.5;
 }
@@ -162,6 +167,36 @@
     font-size: 0.8em;
     color: var(--text-muted);
     margin-top: 4px;
+}
+
+.clinical-os-alert-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    justify-content: flex-end;
+}
+
+/* Filter tabs */
+.clinical-os-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.clinical-os-tab {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--background-modifier-border);
+    color: var(--text-muted);
+}
+
+.clinical-os-tab-active {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-color: var(--interactive-accent);
 }
 
 /* Colleague network */

@@ -39,7 +39,7 @@ export default class ClinicalOS extends Plugin {
         // --- Clinical commands ---
         this.addCommand({
             id: 'clinical-new-patient',
-            name: 'Clinical: Nuevo Paciente',
+            name: 'Clinical: Nuevo proceso',
             callback: () => {
                 new PatientModal(
                     this.app,
@@ -257,10 +257,14 @@ export default class ClinicalOS extends Plugin {
                     a => a.patientName === patientName && !a.resolved
                 );
                 for (const alert of active) {
-                    const prefix = alert.severity === 'critical' ? '[ALERTA CRÍTICA]'
-                        : alert.severity === 'warning' ? '[ALERTA]'
-                        : '[Info]';
-                    new Notice(`${prefix} ${alert.patientName}: ${alert.message}`, 8000);
+                    if (alert.type === 'reminder') {
+                        new Notice(`[Recordatorio] ${alert.patientName}: ${alert.message}`, 6000);
+                    } else {
+                        const prefix = alert.severity === 'critical' ? '[ALERTA CRÍTICA]'
+                            : alert.severity === 'warning' ? '[ALERTA]'
+                            : '[Info]';
+                        new Notice(`${prefix} ${alert.patientName}: ${alert.message}`, 8000);
+                    }
                 }
             })
         );

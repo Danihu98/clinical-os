@@ -149,34 +149,49 @@ const TEST_COLLEAGUES: Colleague[] = [
 
 const TEST_ALERTS: ClinicalAlert[] = [
     {
-        id: 'test-alert-1', patientName: 'Camila Rojas',
+        id: 'test-alert-1', patientName: 'Camila Rojas', type: 'alert',
         severity: 'critical', message: 'Riesgo suicida moderado — Activar plan de seguridad. Contactar padres si no asiste.',
         dateCreated: '2026-03-28', resolved: false,
     },
     {
-        id: 'test-alert-2', patientName: 'Javiera Espinoza',
+        id: 'test-alert-2', patientName: 'Javiera Espinoza', type: 'alert',
         severity: 'warning', message: 'Ideación suicida pasiva reportada en sesión 24. Monitorear en próxima sesión.',
         dateCreated: '2026-04-02', resolved: false,
     },
     {
-        id: 'test-alert-3', patientName: 'Antonia Vargas',
+        id: 'test-alert-3', patientName: 'Antonia Vargas', type: 'alert',
         severity: 'warning', message: 'Pérdida de peso significativa. Coordinar con nutricionista.',
         dateCreated: '2026-03-15', resolved: false,
     },
     {
-        id: 'test-alert-4', patientName: 'Martín Olivares',
+        id: 'test-alert-4', patientName: 'Martín Olivares', type: 'alert',
         severity: 'info', message: 'Derivado a Ps. Ignacio Cárdenas para intervención conjunta en adicciones.',
         dateCreated: '2026-04-01', resolved: false,
     },
     {
-        id: 'test-alert-5', patientName: 'Tomás Araya',
+        id: 'test-alert-5', patientName: 'Tomás Araya', type: 'alert',
         severity: 'warning', message: 'Flashbacks frecuentes. Evaluar derivación a EMDR.',
         dateCreated: '2026-03-20', resolved: false,
     },
     {
-        id: 'test-alert-6', patientName: 'Catalina Reyes',
+        id: 'test-alert-6', patientName: 'Catalina Reyes', type: 'alert',
         severity: 'info', message: 'Paciente viaja al extranjero en mayo. Planificar sesiones online.',
         dateCreated: '2026-04-05', resolved: false,
+    },
+    {
+        id: 'test-reminder-1', patientName: 'Sebastián Muñoz', type: 'reminder',
+        severity: 'info', message: 'Revisar objetivos terapéuticos — lleva 15 sesiones, evaluar reformulación.',
+        dateCreated: '2026-04-03', resolved: false,
+    },
+    {
+        id: 'test-reminder-2', patientName: 'Isidora Contreras', type: 'reminder',
+        severity: 'info', message: 'Preparar informe de alta para próxima sesión.',
+        dateCreated: '2026-04-04', resolved: false,
+    },
+    {
+        id: 'test-reminder-3', patientName: 'Diego Hernández', type: 'reminder',
+        severity: 'info', message: 'Solicitar certificado médico de licencia laboral para adjuntar al expediente.',
+        dateCreated: '2026-04-01', resolved: false,
     },
 ];
 
@@ -226,6 +241,7 @@ export async function seedTestData(app: App, data: ClinicalOSData): Promise<numb
         // Create patient folder and canvas via existing service
         const file = await createPatient(app, {
             name: patient.name,
+            processType: 'individual',
             selectedModel: '',
             rootFolder,
             nextId: patientId,

@@ -1,3 +1,20 @@
+export type ProcessType =
+    | 'individual'
+    | 'child'
+    | 'couple'
+    | 'family'
+    | 'group'
+    | 'supervision';
+
+export const PROCESS_TYPE_LABELS: Record<ProcessType, string> = {
+    individual: 'Psicoterapia individual (adulto)',
+    child: 'Psicoterapia individual (infanto-juvenil)',
+    couple: 'Terapia de pareja',
+    family: 'Terapia familiar',
+    group: 'Terapia grupal',
+    supervision: 'Supervisión clínica',
+};
+
 export interface ClinicalOSSettings {
     rootFolder: string;
     defaultModel: string;
@@ -32,7 +49,8 @@ export interface Colleague {
 export interface ClinicalAlert {
     id: string;
     patientName: string;
-    severity: 'critical' | 'warning' | 'info';
+    type: 'alert' | 'reminder';
+    severity: 'critical' | 'warning' | 'info';  // only used when type === 'alert'
     message: string;
     dateCreated: string;   // YYYY-MM-DD
     resolved: boolean;
