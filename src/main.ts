@@ -1,6 +1,6 @@
 import { Notice, Plugin, TFile, moment } from 'obsidian';
 import { ClinicalOSData, DEFAULT_DATA } from './types';
-import { CONTRIBUTION_URL } from './constants';
+import { CONTRIBUTION_URL, PATIENTS_SUBFOLDER } from './constants';
 import { seedLibrary } from './services/library';
 import { generateMonthlySummary, generatePatientRegistry } from './services/session';
 import { exportPatientRecord } from './services/export';
@@ -10,7 +10,11 @@ import { SessionModal } from './modals/session-modal';
 import { BoletasModal } from './modals/boletas-modal';
 import { PatientSearchModal } from './modals/search-modal';
 import { SafetyPlanModal } from './modals/safety-plan-modal';
+import { ColleagueNetworkModal } from './modals/colleague-modal';
+import { AlertModal } from './modals/alert-modal';
+import { seedTestData } from './services/seed-test-data';
 import { ClinicalOSSettingTab } from './settings';
+import { appendSessionTemplate } from './services/session-planning';
 
 export default class ClinicalOS extends Plugin {
     data: ClinicalOSData = { ...DEFAULT_DATA };
@@ -108,6 +112,44 @@ export default class ClinicalOS extends Plugin {
             callback: () => this.proposeContent(),
         });
 
+        this.addCommand({
+            id: 'clinical-new-session-plan',
+            name: 'Clinical: Nueva sesión (planificar)',
+            callback: async () => {
+                const num = await appendSessionTemplate(this.app, this.data.settings.rootFolder);
+                if (num !== null) {
+                    new Notice(`Sesión ${num} agregada.`);
+                } else {
+                    new Notice('Abre la ficha de un paciente primero.');
+                }
+            },
+        });
+
+        this.addCommand({
+            id: 'clinical-alerts',
+            name: 'Clinical: Alertas clínicas',
+            callback: () => {
+                new AlertModal(
+                    this.app,
+                    this.data,
+                    this.data.settings.rootFolder,
+                    () => this.savePluginData()
+                ).open();
+            },
+        });
+
+        this.addCommand({
+            id: 'clinical-colleague-network',
+            name: 'Clinical: Red de colegas',
+            callback: () => {
+                new ColleagueNetworkModal(
+                    this.app,
+                    this.data,
+                    () => this.savePluginData()
+                ).open();
+            },
+        });
+
         // --- Administrative commands ---
         this.addCommand({
             id: 'clinical-register-session',
@@ -171,6 +213,22 @@ export default class ClinicalOS extends Plugin {
             },
         });
 
+        // --- Development ---
+        this.addCommand({
+            id: 'clinical-seed-test-data',
+            name: 'Clinical (Dev): Cargar datos de prueba',
+            callback: async () => {
+                try {
+                    const count = await seedTestData(this.app, this.data);
+                    await this.savePluginData();
+                    new Notice(`Datos de prueba cargados: ${count} pacientes, ${this.data.colleagues.length} colegas, ${this.data.alerts.filter(a => !a.resolved).length} alertas.`);
+                } catch (err) {
+                    console.error('Clinical OS: Error seeding test data:', err);
+                    new Notice('Error al cargar datos de prueba.');
+                }
+            },
+        });
+
         // Settings tab
         this.addSettingTab(new ClinicalOSSettingTab(
             this.app,
@@ -187,10 +245,38 @@ export default class ClinicalOS extends Plugin {
                 console.error('Clinical OS: Error seeding library:', error);
             }
         });
+
+        // Show clinical alerts when opening a patient file
+        this.registerEvent(
+            this.app.workspace.on('file-open', (file: TFile | null) => {
+                if (!file) return;
+                const patientName = this.extractPatientName(file.path);
+                if (!patientName) return;
+
+                const active = this.data.alerts.filter(
+                    a => a.patientName === patientName && !a.resolved
+                );
+                for (const alert of active) {
+                    const prefix = alert.severity === 'critical' ? '[ALERTA CRÍTICA]'
+                        : alert.severity === 'warning' ? '[ALERTA]'
+                        : '[Info]';
+                    new Notice(`${prefix} ${alert.patientName}: ${alert.message}`, 8000);
+                }
+            })
+        );
     }
 
     onunload(): void {
-        console.log('Clinical OS unloaded.');
+        console.debug('Clinical OS unloaded.');
+    }
+
+    private extractPatientName(filePath: string): string | null {
+        const root = this.data.settings.rootFolder;
+        const prefix = `${root}/${PATIENTS_SUBFOLDER}/`;
+        if (!filePath.includes(prefix)) return null;
+        const afterPrefix = filePath.slice(filePath.indexOf(prefix) + prefix.length);
+        const patientName = afterPrefix.split('/')[0];
+        return patientName || null;
     }
 
     private async loadPluginData(): Promise<void> {
@@ -201,6 +287,8 @@ export default class ClinicalOS extends Plugin {
                 ...saved,
                 settings: { ...DEFAULT_DATA.settings, ...(saved.settings || {}) },
                 sessions: saved.sessions || [],
+                colleagues: saved.colleagues || [],
+                alerts: saved.alerts || [],
             };
         }
     }
@@ -239,17 +327,18 @@ export default class ClinicalOS extends Plugin {
         new Notice('Hito guardado.');
     }
 
-    private async proposeContent(): Promise<void> {
-        const activeFile = this.app.workspace.getActiveFile();
-        if (activeFile && activeFile.extension === 'md') {
-            try {
-                const content = await this.app.vault.read(activeFile);
-                await navigator.clipboard.writeText(content);
-                new Notice('Contenido copiado al portapapeles.');
-            } catch (err) {
-                new Notice('Error al copiar contenido.');
-            }
-        }
-        window.open(CONTRIBUTION_URL);
+    private proposeContent(): void {
+        const title = encodeURIComponent('[Sugerencia] ');
+        const body = encodeURIComponent(
+            '## Tipo de sugerencia\n' +
+            '- [ ] Nuevo concepto clínico\n' +
+            '- [ ] Mejora a plantilla existente\n' +
+            '- [ ] Lectura recomendada\n' +
+            '- [ ] Reporte de error\n' +
+            '- [ ] Otra idea\n\n' +
+            '## Descripción\n\n\n' +
+            '## Beneficio clínico o práctico\n\n'
+        );
+        window.open(`${CONTRIBUTION_URL}/new?title=${title}&body=${body}`);
     }
 }

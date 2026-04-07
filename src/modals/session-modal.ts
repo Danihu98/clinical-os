@@ -7,6 +7,10 @@ export class SessionModal extends Modal {
     private rootFolder: string;
     private onSave: () => Promise<void>;
 
+    private totalSessions = 1;
+    private currentSession = 0;
+    private registered: string[] = [];
+
     private selectedPatient = '';
     private sessionDate = '';
     private sessionFee = 0;
@@ -21,9 +25,52 @@ export class SessionModal extends Modal {
     }
 
     onOpen(): void {
+        this.renderCountStep();
+    }
+
+    onClose(): void {
+        this.contentEl.empty();
+    }
+
+    private renderCountStep(): void {
         const { contentEl } = this;
+        contentEl.empty();
         contentEl.addClass('clinical-os-modal');
-        contentEl.createEl('h2', { text: 'Registrar Sesión' });
+        contentEl.createEl('h2', { text: 'Registrar sesiones' });
+
+        new Setting(contentEl)
+            .setName('Cantidad de sesiones a registrar')
+            .addText(text => {
+                text.setValue('1')
+                    .setPlaceholder('1')
+                    .onChange(v => {
+                        const num = parseInt(v, 10);
+                        this.totalSessions = (num > 0) ? num : 1;
+                    });
+                text.inputEl.type = 'number';
+                text.inputEl.min = '1';
+                text.inputEl.style.width = '60px';
+            });
+
+        const btnDiv = contentEl.createDiv({ cls: 'clinical-os-modal-actions' });
+        const btn = btnDiv.createEl('button', { text: 'Continuar' });
+        btn.addClass('mod-cta');
+        btn.onclick = () => {
+            this.currentSession = 0;
+            this.registered = [];
+            this.renderSessionForm();
+        };
+    }
+
+    private renderSessionForm(): void {
+        const { contentEl } = this;
+        contentEl.empty();
+        contentEl.addClass('clinical-os-modal');
+
+        const label = this.totalSessions > 1
+            ? `Registrar sesión (${this.currentSession + 1} de ${this.totalSessions})`
+            : 'Registrar sesión';
+        contentEl.createEl('h2', { text: label });
 
         const patients = getPatientList(this.app, this.rootFolder);
 
@@ -35,7 +82,12 @@ export class SessionModal extends Modal {
             return;
         }
 
-        // Patient selector
+        // Reset form fields for this session
+        this.selectedPatient = '';
+        this.sessionFee = 0;
+        this.sessionDate = moment().format('YYYY-MM-DD');
+        this.feeInput = null;
+
         new Setting(contentEl)
             .setName('Paciente')
             .addDropdown(dropdown => {
@@ -56,7 +108,6 @@ export class SessionModal extends Modal {
                 });
             });
 
-        // Date
         new Setting(contentEl)
             .setName('Fecha')
             .addText(text => {
@@ -66,7 +117,6 @@ export class SessionModal extends Modal {
                 text.inputEl.type = 'date';
             });
 
-        // Fee
         new Setting(contentEl)
             .setName('Honorarios')
             .setDesc('Monto en pesos chilenos')
@@ -79,15 +129,10 @@ export class SessionModal extends Modal {
                 this.feeInput.inputMode = 'numeric';
             });
 
-        // Actions
         const btnDiv = contentEl.createDiv({ cls: 'clinical-os-modal-actions' });
         const btn = btnDiv.createEl('button', { text: 'Registrar' });
         btn.addClass('mod-cta');
         btn.onclick = () => this.handleRegister();
-    }
-
-    onClose(): void {
-        this.contentEl.empty();
     }
 
     private async handleRegister(): Promise<void> {
@@ -107,7 +152,19 @@ export class SessionModal extends Modal {
         registerSession(this.data, this.selectedPatient, this.sessionDate, this.sessionFee);
         await this.onSave();
 
-        new Notice(`Sesión registrada: ${this.selectedPatient} - ${formatCLP(this.sessionFee)}`);
-        this.close();
+        this.registered.push(`${this.selectedPatient} - ${formatCLP(this.sessionFee)}`);
+        this.currentSession++;
+
+        if (this.currentSession < this.totalSessions) {
+            new Notice(`Sesión ${this.currentSession} de ${this.totalSessions} registrada.`);
+            this.renderSessionForm();
+        } else {
+            if (this.totalSessions === 1) {
+                new Notice(`Sesión registrada: ${this.registered[0]}`);
+            } else {
+                new Notice(`${this.totalSessions} sesiones registradas.`);
+            }
+            this.close();
+        }
     }
 }
