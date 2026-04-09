@@ -16,8 +16,6 @@ export class ClinicalOSSettingTab extends PluginSettingTab {
         const { containerEl } = this;
         containerEl.empty();
 
-        new Setting(containerEl).setName('Clinical OS').setHeading();
-
         new Setting(containerEl)
             .setName('Carpeta raíz')
             .setDesc('Nombre de la carpeta principal donde se guarda todo el contenido clínico.')

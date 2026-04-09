@@ -1,4 +1,4 @@
-import { App, Modal, TFolder, TAbstractFile, TFile } from 'obsidian';
+import { App, Modal, TFile, TFolder, TAbstractFile } from 'obsidian';
 
 export class HistoryModal extends Modal {
     constructor(app: App) {
@@ -46,8 +46,8 @@ export class HistoryModal extends Modal {
             item.createEl('span', { text: label, cls: 'clinical-os-history-date' });
             item.createEl('span', { text: file.name, cls: 'clinical-os-history-file' });
 
-            item.onclick = async () => {
-                await this.app.workspace.getLeaf(true).openFile(file);
+            item.onclick = () => {
+                void this.app.workspace.getLeaf(true).openFile(file);
                 this.close();
             };
         }

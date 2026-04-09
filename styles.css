@@ -107,8 +107,154 @@
     margin-top: 2px;
 }
 
-.clinical-os-boleta-btn {
-    flex-shrink: 0;
+/* Clinical alerts */
+.clinical-os-alert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.clinical-os-alert-item {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border-left: 4px solid var(--background-modifier-border);
+}
+
+.clinical-os-alert-critical {
+    border-left-color: var(--text-error);
+    background: rgba(var(--color-red-rgb), 0.05);
+}
+
+.clinical-os-alert-warning {
+    border-left-color: var(--text-warning);
+    background: rgba(var(--color-yellow-rgb), 0.05);
+}
+
+.clinical-os-alert-info {
+    border-left-color: var(--interactive-accent);
+}
+
+.clinical-os-alert-reminder {
+    border-left-color: var(--text-muted);
+    background: rgba(var(--mono-rgb-100), 0.03);
+}
+
+.clinical-os-alert-resolved {
+    opacity: 0.5;
+}
+
+.clinical-os-alert-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clinical-os-alert-patient {
+    font-weight: 600;
+}
+
+.clinical-os-alert-severity {
+    font-size: 0.8em;
+    color: var(--text-muted);
+}
+
+.clinical-os-alert-message {
+    margin-top: 4px;
+}
+
+.clinical-os-alert-date {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.clinical-os-alert-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    justify-content: flex-end;
+}
+
+/* Filter tabs */
+.clinical-os-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.clinical-os-tab {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--background-modifier-border);
+    color: var(--text-muted);
+}
+
+.clinical-os-tab-active {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-color: var(--interactive-accent);
+}
+
+/* Colleague network */
+.clinical-os-colleague-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.clinical-os-colleague-card {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid var(--background-modifier-border);
+}
+
+.clinical-os-colleague-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.clinical-os-colleague-name {
+    font-weight: 600;
+}
+
+.clinical-os-colleague-trust {
+    color: var(--interactive-accent);
+    font-size: 0.9em;
+}
+
+.clinical-os-colleague-details {
+    font-size: 0.85em;
+    color: var(--text-muted);
+    display: flex;
+    gap: 6px;
+}
+
+.clinical-os-colleague-referral {
+    font-size: 0.85em;
+    margin-top: 4px;
+    color: var(--text-normal);
+}
+
+.clinical-os-colleague-contact {
+    font-size: 0.8em;
+    color: var(--text-muted);
+    margin-top: 4px;
+    display: flex;
+    gap: 12px;
+}
+
+.clinical-os-colleague-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    justify-content: flex-end;
 }
 
 .clinical-os-boletas-footer {

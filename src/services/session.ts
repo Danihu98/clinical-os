@@ -74,7 +74,7 @@ export async function generatePatientRegistry(
 ): Promise<TFile> {
     const patients = getPatientList(app, rootFolder);
 
-    let md = `# Registro de Pacientes\n\n`;
+    let md = `# Registro de pacientes\n\n`;
     md += `| ID | Paciente | Honorarios | Estado |\n`;
     md += `| -- | -------- | ---------- | ------ |\n`;
 
@@ -85,12 +85,14 @@ export async function generatePatientRegistry(
         let fee = 0;
         let status = '-';
 
+        let fichaBasename = '';
         if (folder && folder instanceof TFolder) {
             const fichaFile = folder.children.find(
                 (f: TAbstractFile): f is TFile =>
                     f instanceof TFile && f.name.includes('Ficha') && f.extension === 'md'
             );
             if (fichaFile) {
+                fichaBasename = fichaFile.basename;
                 const cache = app.metadataCache.getFileCache(fichaFile);
                 const fm = cache?.frontmatter;
                 if (fm) {
@@ -101,7 +103,8 @@ export async function generatePatientRegistry(
             }
         }
 
-        md += `| ${id} | [[${name}]] | ${formatCLP(fee)} | ${status} |\n`;
+        const link = fichaBasename ? `[[${fichaBasename}\\|${name}]]` : name;
+        md += `| ${id} | ${link} | ${formatCLP(fee)} | ${status} |\n`;
     }
 
     if (patients.length === 0) {
