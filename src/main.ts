@@ -23,11 +23,11 @@ export default class ClinicalOS extends Plugin {
         await this.loadPluginData();
 
         // Ribbon icons
-        this.addRibbonIcon('history', 'Guardar Hito Clínico', async () => {
+        this.addRibbonIcon('history', 'Guardar hito clínico', async () => {
             await this.createSnapshot();
         });
 
-        this.addRibbonIcon('calendar-plus', 'Registrar Sesión', () => {
+        this.addRibbonIcon('calendar-plus', 'Registrar sesión', () => {
             new SessionModal(
                 this.app,
                 this.data,
@@ -57,7 +57,7 @@ export default class ClinicalOS extends Plugin {
 
         this.addCommand({
             id: 'clinical-search-patient',
-            name: 'Clinical: Buscar Paciente',
+            name: 'Clinical: Buscar paciente',
             callback: () => {
                 new PatientSearchModal(
                     this.app,
@@ -68,13 +68,13 @@ export default class ClinicalOS extends Plugin {
 
         this.addCommand({
             id: 'clinical-view-history',
-            name: 'Clinical: Ver Historial del Paciente',
+            name: 'Clinical: Ver historial del paciente',
             callback: () => new HistoryModal(this.app).open(),
         });
 
         this.addCommand({
             id: 'clinical-export-record',
-            name: 'Clinical: Exportar Expediente',
+            name: 'Clinical: Exportar expediente',
             callback: async () => {
                 try {
                     const file = await exportPatientRecord(
@@ -83,7 +83,7 @@ export default class ClinicalOS extends Plugin {
                         this.data.settings.rootFolder
                     );
                     if (file) {
-                        this.app.workspace.getLeaf().openFile(file);
+                        await this.app.workspace.getLeaf().openFile(file);
                         new Notice('Expediente exportado.');
                     } else {
                         new Notice('Abre un archivo dentro de la carpeta de un paciente.');
@@ -97,7 +97,7 @@ export default class ClinicalOS extends Plugin {
 
         this.addCommand({
             id: 'clinical-safety-plan',
-            name: 'Clinical: Plan de Seguridad',
+            name: 'Clinical: Plan de seguridad',
             callback: () => {
                 new SafetyPlanModal(
                     this.app,
@@ -153,7 +153,7 @@ export default class ClinicalOS extends Plugin {
         // --- Administrative commands ---
         this.addCommand({
             id: 'clinical-register-session',
-            name: 'Clinical: Registrar Sesión',
+            name: 'Clinical: Registrar sesión',
             callback: () => {
                 new SessionModal(
                     this.app,
@@ -166,7 +166,7 @@ export default class ClinicalOS extends Plugin {
 
         this.addCommand({
             id: 'clinical-pending-boletas',
-            name: 'Clinical: Boletas Pendientes',
+            name: 'Clinical: Boletas pendientes',
             callback: () => {
                 new BoletasModal(
                     this.app,
@@ -178,14 +178,14 @@ export default class ClinicalOS extends Plugin {
 
         this.addCommand({
             id: 'clinical-patient-registry',
-            name: 'Clinical: Actualizar Registro de Pacientes',
+            name: 'Clinical: Actualizar registro de pacientes',
             callback: async () => {
                 try {
                     const file = await generatePatientRegistry(
                         this.app,
                         this.data.settings.rootFolder
                     );
-                    this.app.workspace.getLeaf().openFile(file);
+                    await this.app.workspace.getLeaf().openFile(file);
                     new Notice('Registro de pacientes actualizado.');
                 } catch (err) {
                     console.error('Clinical OS: Error updating registry:', err);
@@ -196,7 +196,7 @@ export default class ClinicalOS extends Plugin {
 
         this.addCommand({
             id: 'clinical-monthly-summary',
-            name: 'Clinical: Resumen Mensual',
+            name: 'Clinical: Resumen mensual',
             callback: async () => {
                 try {
                     const file = await generateMonthlySummary(
@@ -204,7 +204,7 @@ export default class ClinicalOS extends Plugin {
                         this.data,
                         this.data.settings.rootFolder
                     );
-                    this.app.workspace.getLeaf().openFile(file);
+                    await this.app.workspace.getLeaf().openFile(file);
                     new Notice('Resumen mensual generado.');
                 } catch (err) {
                     console.error('Clinical OS: Error generating summary:', err);

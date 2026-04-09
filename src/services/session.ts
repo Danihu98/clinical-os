@@ -74,7 +74,7 @@ export async function generatePatientRegistry(
 ): Promise<TFile> {
     const patients = getPatientList(app, rootFolder);
 
-    let md = `# Registro de Pacientes\n\n`;
+    let md = `# Registro de pacientes\n\n`;
     md += `| ID | Paciente | Honorarios | Estado |\n`;
     md += `| -- | -------- | ---------- | ------ |\n`;
 

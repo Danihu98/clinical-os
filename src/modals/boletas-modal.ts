@@ -27,7 +27,7 @@ export class BoletasModal extends Modal {
 
         const pending = getPendingBoletas(this.data);
 
-        contentEl.createEl('h2', { text: `Boletas Pendientes (${pending.length})` });
+        contentEl.createEl('h2', { text: `Boletas pendientes (${pending.length})` });
 
         if (pending.length === 0) {
             contentEl.createEl('p', {

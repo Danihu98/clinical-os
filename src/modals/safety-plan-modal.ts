@@ -8,7 +8,7 @@ export class SafetyPlanModal extends FuzzySuggestModal<string> {
     constructor(app: App, rootFolder: string) {
         super(app);
         this.rootFolder = rootFolder;
-        this.setPlaceholder('Seleccionar paciente para el Plan de Seguridad...');
+        this.setPlaceholder('Seleccionar paciente para el plan de seguridad...');
     }
 
     getItems(): string[] {
@@ -23,14 +23,14 @@ export class SafetyPlanModal extends FuzzySuggestModal<string> {
         try {
             const file = await createSafetyPlan(this.app, this.rootFolder, item);
             if (file) {
-                this.app.workspace.getLeaf().openFile(file);
-                new Notice(`Plan de Seguridad creado para ${item}.`);
+                await this.app.workspace.getLeaf().openFile(file);
+                new Notice(`Plan de seguridad creado para ${item}.`);
             } else {
                 new Notice('No se encontró la carpeta del paciente.');
             }
         } catch (err) {
             console.error('Clinical OS: Error creating safety plan:', err);
-            new Notice('Error al crear el Plan de Seguridad.');
+            new Notice('Error al crear el plan de seguridad.');
         }
     }
 }

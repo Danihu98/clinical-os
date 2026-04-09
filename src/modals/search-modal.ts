@@ -22,7 +22,7 @@ export class PatientSearchModal extends FuzzySuggestModal<string> {
     onChooseItem(item: string): void {
         const ficha = findPatientFicha(this.app, this.rootFolder, item);
         if (ficha) {
-            this.app.workspace.getLeaf().openFile(ficha);
+            void this.app.workspace.getLeaf().openFile(ficha);
         }
     }
 }

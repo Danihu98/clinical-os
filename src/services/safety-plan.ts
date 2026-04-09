@@ -37,7 +37,7 @@ export async function createSafetyPlan(
     let noteContent = templateKey ? LIBRARY_CONTENT[templateKey] : '';
 
     if (!noteContent) {
-        noteContent = `# Plan de Seguridad\n\n**Paciente:** ${patientName}\n**Fecha:** ${moment().format('DD/MM/YYYY')}`;
+        noteContent = `# Plan de seguridad\n\n**Paciente:** ${patientName}\n**Fecha:** ${moment().format('DD/MM/YYYY')}`;
     }
 
     noteContent = noteContent
